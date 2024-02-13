@@ -51,7 +51,7 @@ bst.insert({'id': 102, 'name': 'Daryl Dixon', 'age': 45})
 bst.insert({'id':103, 'name':'Rick Grimes', 'age':43})
 
 # Search for data by ID
-search_id = 101
+search_id = 102
 result_node = bst.search(search_id)
 if result_node:
     print("Data found:")

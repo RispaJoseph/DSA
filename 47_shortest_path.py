@@ -5,6 +5,8 @@ def bfs_shortest_distance(start_node, end_node, graph):
     if start_node not in graph or end_node not in graph:
         print("Start or end node not present in the graph.")
         return -1  # Indicate failure
+    
+
     import collections
     queue = collections.deque([start_node])
     
@@ -12,13 +14,13 @@ def bfs_shortest_distance(start_node, end_node, graph):
         current = queue.popleft()
         visited.add(current)
         
-        for neighbor in graph[current]:
-            if neighbor not in visited:
-                queue.append(neighbor)
-                distance[neighbor] = distance[current] + 1
+        for i in graph[current]:
+            if i not in visited:
+                queue.append(i)
+                distance[i] = distance[current] + 1
                 
-                if neighbor == end_node:
-                    return distance[neighbor]
+                if i == end_node:
+                    return distance[i]
     
     print("End node is not reachable from the start node.")
     return -1  # Indicate failure
@@ -36,7 +38,7 @@ graph = {
 }
 
 start_node = 'A'
-end_node = 'G'
+end_node = 'C'
 
 result = bfs_shortest_distance(start_node,end_node,graph)
 print(result)

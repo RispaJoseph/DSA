@@ -71,8 +71,8 @@ def DFS(node,graph):
             visited.add(v)
 
             for i in graph[v]:
-                visited.add(i[0])
-            return visited
+                stack.append(i[0])
+    return visited
             
     
 

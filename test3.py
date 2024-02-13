@@ -1,40 +1,14 @@
-class TreeNode:
-    def __init__(self,value):
-        self.val = value
-        self.left = None
-        self.right = None
+def remove_duplicate(s):
+    index = len(A)
+    stack = []
 
-def closest_value(root,target):
-    closest = root.val
-    min_diff = abs(root.val - target)
+    for i in stack:
+        if i[index] not in i[:index]:
+            stack.pop(i)
 
-    def inorder_traversal(node):
-        nonlocal closest, min_diff
+    remove_duplicate(A)
+    return stack
 
-        if node:
-            inorder_traversal(node.left)
-            if abs(node.val - target) < min_diff:
-                min_diff = abs(node.val - target)
-                closest = node.val
-            inorder_traversal(node.right)
-
-    inorder_traversal(root)
-    return closest
-
-
-
-
-
-        
-root = TreeNode(5)
-root.left = TreeNode(3)
-root.right = TreeNode(7)
-root.left.left = TreeNode(2)
-root.left.right = TreeNode(4)
-root.right.left = TreeNode(6)
-root.right.right = TreeNode(8)
-
-target = 1
-result = closest_value(root,target)
-
-print("The closest value is ",result)
+A = [1,2,3,4,3,5,4]
+res = remove_duplicate(A)
+print(res)
