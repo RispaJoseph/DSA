@@ -10,7 +10,7 @@ class TreeNode:
         while current.left and current.left.left:
             current = current.left
         if current.left:
-            print(f'The 2nd smallest value in the tree is {current.left.val}')
+            print(f'The 2nd smallest value in the tree is {current.val}')
         else:
             print("Tree has less than 2 nodes")
 
