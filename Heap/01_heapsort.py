@@ -30,8 +30,8 @@ def build_max_heap(A):
 
     for i in range(n-1,-1,-1):
         A[0],A[i] = A[i],A[0]
-        max_heapify(A,n,0)
+        max_heapify(A,i,0)
 
-A = [34,5,2,76,0,41,8]
+A = [3,44,6,78,20,1]
 build_max_heap(A)
 print(A)

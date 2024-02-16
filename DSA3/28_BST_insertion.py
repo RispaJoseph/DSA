@@ -12,7 +12,7 @@ class BST:
         if self.key==data:
             return
 
-        if self.key>data:
+        if data < self.key:
             if self.lchild:
                 self.lchild.insert(data)
             else:
@@ -64,43 +64,34 @@ class BST:
         print(self.key)
 
 
-    def delete(self,data,curr):
+    def delete(self,data):
         if self.key is None:
             print("Tree is Empty")
             return
         
         if data < self.key:
             if self.lchild:
-                self.lchild = self.lchild.delete(data,curr)
+                self.lchild = self.lchild.delete(data)
             else:
                 print("Given node is not present in the tree!")
         
         elif data > self.key:
             if self.rchild:
-                self.rchild = self.rchild.delete(data,curr)
+                self.rchild = self.rchild.delete(data)
             else:
                 print("Given node is not present in the tree!")
 
         else:
             if self.lchild is None:
                 temp = self.rchild
-                if data == curr:
-                    self.key = temp.key
-                    self.lchild = temp.lchild
-                    self.rchild = temp.rchild
-                    temp = None
-                    return  
+        
+                
                 self = None
                 return temp
             
             if self.rchild is None:
                 temp = self.lchild
-                if data == curr:
-                    self.key = temp.key
-                    self.lchild = temp.lchild
-                    self.rchild = temp.rchild
-                    temp = None
-                    return
+                
                 self = None
                 return temp
             
@@ -122,36 +113,40 @@ def count(node):
 
 
 
-root = BST(20)
-list = [2,3]
+root = BST(10)
+list = [5,3,7,2,4,6,8]
 for i in list:
   root.insert(i)
+print()
 
 
 print("Count : ")
 print(count(root))
-
-
-root.search(30)
-
-print("Pre-Order")
-root.preorder()
-print()
-
-print("Post-Order")
-root.postorder
 print()
 
 
-print("Inorder")
-root.inorder()
+root.search(5)
+print()
+
+# print("Pre-Order")
+# root.preorder()
+# print()
+
+# print("Post-Order")
+# root.postorder
+# print()
+
+
+# print("Inorder")
+# root.inorder()
 
 
 
 if count(root) >1:
-    root.delete(20, root.key)
+    root.delete(3)
 else:
     print("Can't perform deletion operation!")
+print()
 
 
 print("After Deleting : ")
