@@ -83,15 +83,12 @@ class BST:
 
         else:
             if self.lchild is None:
-                temp = self.rchild
-        
-                
+                temp = self.rchild                
                 self = None
                 return temp
             
             if self.rchild is None:
                 temp = self.lchild
-                
                 self = None
                 return temp
             
