@@ -2,7 +2,7 @@ def add_node(v):
     if v in graph:
         print(v,"is already present in graph")
     else:
-        graph[v]= []
+        graph[v]= []       
 
 def add_edge(v1,v2,w):
     if v1 not in graph:
