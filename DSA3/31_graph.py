@@ -14,11 +14,11 @@ def add_node(v):
             temp.append(0)
         graph.append(temp)
 
-def print_graph():
-    for i in range(node_count):
-        for j in range(node_count):
-            print("{:<3}".format(graph[i][j]), end=" ")        
-        print()
+# def print_graph():
+#     for i in range(node_count):
+#         for j in range(node_count):
+#             print("{:<3}".format(graph[i][j]), end=" ")        
+#         print()
 
 
 def add_edge(v1,v2):
@@ -86,7 +86,7 @@ print("nodes :", nodes)
 
 print(graph)
 print()
-print_graph()
+# print_graph()
 
 
 
