@@ -110,7 +110,7 @@ print()
 c = root.count()
 
 if c > 1:
-    root.delete(15)
+    root.delete(17)
 else:
     print("Can't perform deletion operation!")
 

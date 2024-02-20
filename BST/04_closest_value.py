@@ -34,5 +34,5 @@ root.right.right = TreeNode(8)
 target = 13
 closest = closest_value(root,target)
 
-print(f'CLosest value for {target} in the BST is {closest}')
+print(f'Closest value for {target} in the BST is {closest}')
 
