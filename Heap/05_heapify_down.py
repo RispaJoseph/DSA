@@ -63,10 +63,10 @@ def delete_from_heap(A,val):
         heapify_up(A,pos)
 
 
-def delete_max(A):
-    last = A.pop()
-    A[0] = last
-    heapify_down(A,0)
+# def delete_max(A):
+#     last = A.pop()
+#     A[0] = last
+#     heapify_down(A,0)
 
 
 def build_heap(A):
@@ -80,8 +80,8 @@ A = [34,5,2,76,0,41,8]
 build_heap(A)
 print(A)
 
-delete_from_heap(A,41)
+delete_from_heap(A,42)
 print(A)
 
-delete_max(A)
-print(A)
+# delete_max(A)
+# print(A)

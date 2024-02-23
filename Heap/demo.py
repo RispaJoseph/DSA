@@ -1,27 +1,91 @@
-class TreeNode:
-    def __init__(self,value):
-        self.val = value
-        self.left = None
-        self.right = None
+def max_heapify(A,i):
+    l = left(i)
+    r = left(i)
 
-def inorder_traversal(root):
-    res = []
-    if root is None:
-        return []
-    A = inorder_traversal(root.left)
-    res.extend(A)
-    res.append(root.val)
-    B = inorder_traversal(root.right)
-    res.extend(B)
-    return res
+    if l < len(A) and A[l] > A[i]:
+        largest = l
+    else: 
+        largest = i
+
+    if r < len(A) and A[r] > A[largest]:
+        largest = r
+    
+    if largest != i:
+        A[largest],A[i] = A[i],A[largest]
+        max_heapify(A,largest)
 
 
-root = TreeNode(5)
-root.left = TreeNode(3)
-root.right = TreeNode(7)
-root.left.left = TreeNode(2)
-root.left.right = TreeNode(4)
-root.right.left = TreeNode(6)
-root.right.right = TreeNode(8)
 
-print(inorder_traversal(root))
+
+def left(i):
+    return 2*i+1
+
+def right(i):
+    return 2*i+2
+
+
+def heapify_up(A,n):
+    while n > 0:
+        p = (n-1)//2
+        if A[n] > A[p]:
+            A[n],A[p] = A[p],A[n]
+            n = p
+        else: 
+            break
+
+def heapify_down(A,i):
+    while True:
+        l = left(i)
+        r = right(i)
+        if l < len(A) and A[l] > A[i]:
+            largest = l
+        else:
+            largest = i
+        if r < len(A) and A[r] > A[largest]:
+            largest = r
+        if largest != i:
+            A[largest],A[i] = A[i],A[largest]
+        else:
+            break
+
+
+
+
+
+def build_heap(A):
+    n = len(A)//2 - 1
+    for i in range(n, -1, -1):
+        max_heapify(A,i)
+
+def insert_into_heap(A,i):
+    A.append(i)
+    heapify_up(A,len(A)-1)
+
+
+
+def delete_from_heap(A,val):
+    if val not in A:
+        print(f'{val} not present in the list!')
+    else:
+        pos = A.index(val)
+        last = A.pop()
+        A[pos] = last
+
+        heapify_up(A,pos)
+        heapify_down(A,pos)
+
+
+
+
+A = [34,5,2,76,0,41,8]
+build_heap(A)
+print(A)
+
+insert_into_heap(A,100)
+print("Insertion = ",A)
+
+delete_from_heap(A,0)
+print("Delete = ",A)
+
+
+
