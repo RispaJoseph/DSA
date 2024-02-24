@@ -24,8 +24,9 @@ def delete_node(v):
         graph.pop(v)
         for i in graph:
             list1 = graph[i]
-            if v in list1:
-                list1.remove(v)
+            for j in list1:
+                if v == j[0]:
+                    list1.remove(j)
 
 def delete_edge(v1,v2):
     if v1 not in graph:

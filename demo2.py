@@ -1,40 +1,75 @@
-def heapify(A,n,i):
-    l = left(i)
-    r = right(i)
-
-    if l < n and A[l] > A[i]:
-        largest = l
+def add_node(v):
+    global node_count
+    if v in graph:
+        print("{v} is not present in the graph")
     else:
-        largest = i
-    
-    if r < n and A[r] > A[largest]:
-        largest = r
-    
-    if largest != i:
-        A[i],A[largest] = A[largest],A[i]
-        heapify(A,n,largest) 
+        nodes.append(v)
+        node_count = node_count + 1
+
+        for n in graph:
+            n.append(0)
+
+        temp = []
+        for i in range(node_count):
+            temp.append(0)
+        graph.append(temp)
+
+def add_edge(v1,v2,w):
+    if v1 not in nodes:
+        print(f"{v1} not present in the graph")
+
+    elif v2 not in nodes:
+        print(f"{v2} not present in the graph")
+    else:
+        index1 = nodes.index(v1)
+        index2 = nodes.index(v2)
+
+        graph[index1][index2] = w
+        graph[index2][index1] = w
+
+def delete_node(v):
+    if v not in nodes:
+        print(f"{v} not in present in the graph")
+    else:
+        index1 = nodes.index(v)
+        nodes.pop(index1)
+
+        graph.pop(index1)
+        for i in graph:
+            i.pop(index1)
+
+def delete_edge(v1,v2):
+    if v1 not in nodes:
+        print(f"{v1} not present in the graph!")
+    elif v2 not in nodes:
+        print(f"{v2} not present in the graph!")
+    else:
+        index1 = nodes.index(v1)
+        index2 = nodes.index(v2)
+
+        graph[index1][index2] = 0
+        graph[index2][index1] = 0
 
 
 
 
-def left(i):
-    return 2*i+1
+            
+
+node_count = 0
+nodes = []
+graph = []
+
+add_node("A")
+add_node("B")
+add_node("C")
+
+add_edge("A","B",1)
+add_edge("B","C",2)
 
 
-def right(i):
-    return 2*i+2
+delete_node("C")
 
-def build_heap(A):
-    n = len(A)
-    for i in range(n,-1,-1):
-        heapify(A,n,i)
+delete_edge("A","B")
 
-    for i in range(n-1,-1,-1):
-        A[i],A[0] = A[0],A[i]
-        heapify(A,i,0)
-
-
-A = [5,9,6,1,8,10,2,4,7,3]
-build_heap(A)
-print(A)
-    
+print(nodes)
+print(graph)
