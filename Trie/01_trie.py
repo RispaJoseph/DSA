@@ -6,7 +6,7 @@ class Node:
 class Trie:
   def __init__(self):
     self.root=Node()
-  
+   
   def insert(self,word):
     node=self.root
     for char in word:

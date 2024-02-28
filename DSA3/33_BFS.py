@@ -53,6 +53,7 @@ def BFS(node,graph):
     while queue:
         current=queue.popleft()
         visited.add(current)
+        
         for i in graph[current]:
             if i not in visited:
                 queue.append(i)

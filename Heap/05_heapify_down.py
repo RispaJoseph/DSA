@@ -80,7 +80,7 @@ A = [34,5,2,76,0,41,8]
 build_heap(A)
 print(A)
 
-delete_from_heap(A,42)
+delete_from_heap(A,41)
 print(A)
 
 # delete_max(A)
